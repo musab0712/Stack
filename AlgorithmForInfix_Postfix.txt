@@ -1,0 +1,48 @@
+#include"Stack.c"
+
+int main()
+{
+	char infix[20],postfix[20];
+	Stack  S=createStack(10);
+	for(i=0;infix.length;i++)
+	
+		if infix[i] is operand 
+			postfix <-- infix[i]
+		
+		else if(infix[i]==')')
+			{
+				while(peek(S)!='(')
+					postfix <-- pop(S);
+				pop(S);
+			}
+
+		else infix[i] is operator
+			{
+				while !isEmpty(S) && priority(infix[i])>=priority(peek(S)) && peek(S)!='('
+					posfix <-- pop(S)
+				push(S,infix[i])
+			}
+
+	End of For
+
+	while !isEmpty(S)
+		posfix <-- pop(S)
+}
+
+int IsOperand(int x)
+{
+	if( (x>='A' && x<='Z') || (x>='0'&&x<='9') )
+		return 1;
+	else
+		return 0;
+}
+
+int priority(int x)
+{
+	if(x=='+'||x=='-')
+		return 1;
+	if(x=='*'||x=='/')
+		return 2;
+	if(x=='(')
+		return 3;
+}
