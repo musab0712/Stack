@@ -3,12 +3,33 @@ public class StackUsingArray{
    private int data[];
    private int topIndex;
 
+   public StackUsingArray(){
+        data = new int[10];
+        topIndex = -1;
+    }
+
    public StackUsingArray(int n){
        data = new int[n];
        topIndex = -1;
    }
 
+   public int top(){
+       return data[topIndex];
+   }
+
+   private void doubleCapacity(){
+        System.out.println("double");
+        int temp[] = data;
+        data = new int[2*temp.length];
+        for(int i = 0; i < temp.length; i++){
+            data[i] = temp[i];
+        }
+   }
+
    public void push(int elem){
+        if(topIndex == -1){
+            doubleCapacity();
+        }
        data[++topIndex] = elem;
    }
 
