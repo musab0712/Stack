@@ -4,30 +4,25 @@ public class StackusingLL {
 
     public StackusingLL(){
         head = null;
-        size = -1;
+        size = 0;
     }
 
     public boolean isEmpty(){
-        return (size == -1);
+        return (size == 0);
     }
 
-    public int top(){
+    public int peek(){
         return head.getData();
     }
 
     public int size(){
-        return size+1;
+        return size;
     }
 
     public void push(int elem){
         Node new_Node = new Node(elem);
-        if(head == null)
-            head = new_Node;
-        else{
-            Node temp = head;
-            head = new_Node;
-            new_Node.setNext(temp);
-        }
+        new_Node.setNext(head);
+        head = new_Node;
         size++;
     }
 
